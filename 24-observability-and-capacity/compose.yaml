@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8087:8087"
+    mem_limit: 512m

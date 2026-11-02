@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.learning</groupId>
+  <artifactId>order-tracking-capstone</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>order-service</module>
+    <module>delivery-service</module>
+  </modules>
+</project>

@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.learning</groupId>
+  <artifactId>spring-reactive-course</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>01-reactive-fundamentals</module>
+    <module>02-reactive-streams</module>
+    <module>03-mono-and-flux</module>
+    <module>04-publishers-and-lifecycle</module>
+    <module>05-map-and-filter</module>
+    <module>06-flatmap-and-ordering</module>
+    <module>07-combining-publishers</module>
+    <module>08-error-handling</module>
+    <module>09-stepverifier</module>
+    <module>10-webflux-rest</module>
+    <module>11-functional-endpoints</module>
+    <module>12-webclient</module>
+    <module>13-server-sent-events</module>
+    <module>14-backpressure</module>
+    <module>15-schedulers-and-blocking</module>
+    <module>16-hot-cold-and-sinks</module>
+    <module>17-r2dbc-postgres</module>
+    <module>18-reactive-mongodb</module>
+    <module>19-reactive-security</module>
+    <module>20-context-and-event-loops</module>
+    <module>21-debugging-and-cleanup</module>
+    <module>22-time-and-retries</module>
+    <module>23-resilience</module>
+    <module>24-observability-and-capacity</module>
+    <module>25-websockets</module>
+    <module>26-rsocket</module>
+    <module>27-order-tracking-capstone</module>
+  </modules>
+</project>

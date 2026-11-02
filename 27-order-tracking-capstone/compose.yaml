@@ -1,0 +1,43 @@
+name: springreactive27
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-classroom}
+      POSTGRES_USER: ${DB_USER:-student}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD}
+    ports:
+      - "5435:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  delivery-service:
+    build: ./delivery-service
+    ports:
+      - "8092:8092"
+    mem_limit: 512m
+  order-service:
+    build: ./order-service
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-classroom}
+      DB_USER: ${DB_USER:-student}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD}
+      DEMO_USER: ${DEMO_USER:-student}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:?Set DEMO_PASSWORD}
+      DELIVERY_BASE_URL: http://delivery-service:8092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      delivery-service:
+        condition: service_started
+    ports:
+      - "8091:8091"
+    mem_limit: 512m
+volumes:
+  pgdata:
